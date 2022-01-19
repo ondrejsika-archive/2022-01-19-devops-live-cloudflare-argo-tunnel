@@ -1,5 +1,12 @@
 # DevOps Live #28: Cloudflare Argo Tunnel
 
+## Setup Tunnels using Terraform
+
+```
+terraform init
+terraform apply
+```
+
 ## Local
 
 ## Install `cloudflared`
