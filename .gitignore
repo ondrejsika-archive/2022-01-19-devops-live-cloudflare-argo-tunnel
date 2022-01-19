@@ -1,1 +1,13 @@
+# Mac
+.DS_Store
+
+# Helm
 /values/secrets.yml
+
+# Terraform
+.terraform
+*.tfvars
+*.tfstate
+*.tfstate*backup
+*.log
+.terraform.tfstate.lock.info
