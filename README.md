@@ -1,5 +1,40 @@
 # DevOps Live #28: Cloudflare Argo Tunnel
 
+## Local
+
+## Install `cloudflared`
+
+```
+brew install cloudflare/tap/cloudflared
+```
+
+## Authenticate
+
+```
+cloudflared login
+```
+
+## Run Hello World Server
+
+```
+slu install-bin -n hello-world-server -u https://github.com/sikalabs/hello-world-server/releases/download/v0.4.0/hello-world-server_v0.4.0_linux_amd64.tar.gz
+hello-world-server
+```
+
+## Get Tunnel Config
+
+```
+terraform output --json local
+```
+
+## Run `cloudflared`
+
+```
+TUNNEL_CRED_CONTENTS='{"AccountTag":"...","TunnelID":"...","TunnelSecret":"..."}'
+TUNNEL_ID=...
+cloudflared tunnel run --credentials-contents $TUNNEL_CRED_CONTENTS --url http://127.0.0.1:8000 $TUNNEL_ID
+```
+
 ## Kubernetes
 
 ## Setup HELM
