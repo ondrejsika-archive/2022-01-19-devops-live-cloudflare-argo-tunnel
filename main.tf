@@ -39,6 +39,24 @@ module "tunnel--red" {
   record_name   = "tunnel-red"
 }
 
+module "tunnel--green" {
+  source        = "./modules/tunnel"
+  account_id    = local.account_id
+  zone_id       = local.sikademo_com_zone_id
+  secret_base64 = base64encode(random_string.secret.result)
+  tunnel_name   = "green"
+  record_name   = "tunnel-green"
+}
+
+module "tunnel--blue" {
+  source        = "./modules/tunnel"
+  account_id    = local.account_id
+  zone_id       = local.sikademo_com_zone_id
+  secret_base64 = base64encode(random_string.secret.result)
+  tunnel_name   = "blue"
+  record_name   = "tunnel-blue"
+}
+
 output "local" {
   value     = module.tunnel--local.tunnel_config
   sensitive = true
@@ -46,5 +64,15 @@ output "local" {
 
 output "red" {
   value     = module.tunnel--red.tunnel_config
+  sensitive = true
+}
+
+output "green" {
+  value     = module.tunnel--green.tunnel_config
+  sensitive = true
+}
+
+output "blue" {
+  value     = module.tunnel--blue.tunnel_config
   sensitive = true
 }
